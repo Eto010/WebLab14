@@ -1,24 +1,27 @@
-import '../css/style.css'
-import javascriptLogo from '../javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+function createRipple(e) {
+    const target = e.currentTarget;
+    const circle = document.createElement('span');
+    circle.classList.add('wave');
+    target.appendChild(circle);
 
-setupCounter(document.querySelector('#counter'))
+    const d = Math.max(target.clientWidth, target.clientHeight);
+    circle.style.width = circle.style.height = d + 'px';
+
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left - d / 2;
+    const y = e.clientY - rect.top - d / 2;
+
+    circle.style.left = x + 'px';
+    circle.style.top = y + 'px';
+    
+    circle.addEventListener('animationend', () => {
+        circle.remove();
+    });
+}
+
+
+document.querySelectorAll('.btn-wave, [contenteditable="true"]').forEach(el => {
+    el.addEventListener('mousedown', createRipple);
+});
+document.getElementById('pdf-btn').addEventListener('click', () => window.print());

@@ -2,12 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+
+    <title>Resume</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="resume-card" id="resume">
+
+    <main class="main-content">
+        <header>
+            <h1 contenteditable="true" id="name">Влад Кириченко</h1>
+            <h2 contenteditable="true" id="job">Student</h2>
+        </header>
+        <section>
+            <h3>Контакты</h3>
+            <p contenteditable="true" id="phone">+7-(111)-111-11-11</p>
+            <p contenteditable="true" id="email">mail@example.com</p>
+        </section>
+        <section>
+            <h3>Навыки</h3>
+            <p contenteditable="true" id="skills">HTML, CSS, JS</p>
+        </section>
+        <section>
+            <h3 class="section-title">Опыт работы</h3>
+            <div contenteditable="true" class="edit-block">
+            </div>
+        </section>
+
+        <section>
+            <h3 class="section-title">О себе</h3>
+            <p contenteditable="true" class="edit-block"></p>
+        </section>
+    </main>
+</div>
+
+<div class="actions">
+    <button id="pdf-btn" class="btn-wave">Скачать PDF</button>
+</div>
+
+    </div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
